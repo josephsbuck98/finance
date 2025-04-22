@@ -9,15 +9,20 @@ client
 const account = new Account(client);
 const databases = new Databases(client);
 
-databases.listDocuments('680809010021d3f8bedf', '680809350024be9bb75f')
-  .then(res => {
-    console.log("✅ Connected to DB. Documents:", res.documents);
-    document.body.innerHTML += "<p>✅ Connected to database!</p>";
-  })
-  .catch(err => {
-    console.error("❌ Error accessing database:", err);
-    document.body.innerHTML += `<p>❌ DB error: ${err.message}</p>`;
-  });
+databases.createDocument(
+  '680809010021d3f8bedf', 
+  '680809350024be9bb75f',
+  ID.unique(),
+  {
+    name: 'Jane Doe',
+    email: 'jane@example.com',
+    age: 30
+  }
+).then((response) => {
+  console.log('✅ Document created:', response);
+}).catch((error) => {
+  console.error('❌ Failed to create document:', error)
+});
 
 // document.getElementById('register-form').addEventListener('submit', async (e) => {
 //   e.preventDefault();
