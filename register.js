@@ -9,6 +9,10 @@ client
 const account = new Account(client);
 const databases = new Databases(client);
 
+account.get()
+  .then(user => console.log("✅ Connected, user:", user))
+  .catch(err => console.error("❌ Error connecting to Appwrite:", err));
+
 databases.createDocument(
   '680809010021d3f8bedf', 
   '680809350024be9bb75f',
