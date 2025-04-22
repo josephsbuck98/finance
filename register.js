@@ -1,8 +1,3 @@
-// import { account, databases } from './appwrite.js';
-
-
-
-// Register a new account
 import { Client, Account, ID } from "https://cdn.jsdelivr.net/npm/appwrite@13.0.1/+esm";
 
 const client = new Client()
